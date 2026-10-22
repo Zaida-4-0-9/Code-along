@@ -1,0 +1,1802 @@
+Course 1 C#:
+    Variables and data types:
+
+        Every Variable has a data type:
+            ints are whole numbers
+            strings are Text and have to be in " "
+            Doubles are like floats and can be decimals
+            bools are True or false
+            chars are single characters (Letters) and have to be in ' '
+
+        to declare a variable you type the data type and then the variable_name:
+            ex string name = "Zaida", int number = 0 Double age = 17.5, bool CanCode = true, char FirstLetter = 'Z'
+
+        Scope is in what parts of the program you can use the variable
+
+        to use a variable in a sentence you have to put a $ before the sentence
+
+        to convert a number to a string we use the ToString() method:
+            ex: 
+            int states = 50;
+            double bodyTemp = 98.6;
+            string bodyTempString = bodyTemp.ToString(); // value: "98.6"
+            var statesString = states.ToString(); // value: "50"
+
+    to convert a string to a number we use the DataType.TryParse() method:
+        ex:
+        Console.WriteLine("How many cookies do you want?");
+        string cookieCountString = Console.ReadLine();
+        int cookies;
+        int.TryParse(cookieCountString, out cookies);
+
+    to convert between a double and an int:
+        ex:
+        int anInt = 78;
+        double aDouble = 235.2;
+        var intDouble = (double)anInt;
+        var doubleInt = (int)aDouble;
+
+    Statements Expressions and Operators:
+
+    a statment is a full line of code:
+        ex:
+        int sum = 7 + 9;
+
+        an expression is part of a line of code:
+        ex:
+        7 + 9;
+
+    an operator is part of an expression:
+        ex:
+        + adds two values
+        - subtracts two values
+        * multiplies two values
+        / divides two values
+        % gives you the decimal of a division problem
+        ++ add one
+        -- subtract one
+
+        = assigns a value
+        += adds a number to a variable and assigns it to the variable this one has all of the
+        other variants too
+
+        == checks if they're equal
+        < less than
+        > greater than
+        <= >= less than/greater than or equal to
+
+        && both have to be true
+        || one or the other have to be true
+        ! is not true
+
+    Conditional Statements/ Branching:
+
+    if/else:
+        these allow you to check if somthing meets a certain condition and if it does then do the code within the curly brackets {}
+        ex
+        if (age < 18)
+        {
+            Console.WriteLine("You're just a kid!");
+        }
+        else if (age < 25)
+        {
+            Console.WriteLine("You're technically an adult ;)";
+        }
+        else if (age < 65)
+        {
+            Console.WriteLine("Have fun adulting...");
+        }
+        else
+        {
+            Console.WriteLine("Retirement!");
+        }
+
+    switch:
+        switches are simmular to if statments however they only need you to input the variable they will see if it fits in with any of the catagories on it's own.
+        ex
+        switch (age)
+        {
+        case 5:
+            Console.WriteLine("You are starting kindergarten!");
+            break;
+        case 13:
+            Console.WriteLine("Sorry about middle school...");
+            break;
+        case 17:
+            Console.WriteLine("How do you feel about high school?");
+            break;
+        default:
+            Console.WriteLine($"I bet you enjoy being ${age}!");
+            break;
+        }
+
+    Ternary
+        Ternary statments are interesting as they take 3 inputs one is a condition and the other two are what value to set if it's true and what to set if it's false
+        ex
+        // ternary for value selection
+
+        bool onlyOriginalTrilogy = false;
+
+        int numberOfGoodStarWars = onlyOriginalTrilogy ? 3 : 9; // numberOfGoodStarWars gets the value 9
+
+        // ternary for different statements
+
+        age >= 55 ? Console.WriteLine("Senior discount!!") : Console.WriteLine("Full price for you!");
+
+    Loops and Iteration:
+
+    for
+        the for loop loops a certain number of times and then is over with
+        ex
+        for(int time = 1; time <= 12; time++)
+        {
+            Console.WriteLine($"It is {time} o'clock.");
+        } 
+
+    while
+        a while loop will keep looping as long as the conditional stays true
+        ex
+        while(whosThere == "banana")
+        { // Iterate
+            Console.WriteLine("Banana who?");
+            Console.WriteLine("Knock knock!");
+            Console.WriteLine("Who's there?");
+            whosThere = Console.ReadLine(); // Update
+        }
+
+    foreach
+        a foreach loop will iterate through a list or string or array
+        ex
+        string[] fruits = { "apple", "banana", "cherry" };
+        foreach (string fruit in fruits)
+        {
+            Console.WriteLine($"I like {fruit}.");
+        }
+
+    Arrays and Lists:
+
+    Arrays
+        Arrays have a fixed size which means they take up less space than a list however this means if you want to add something to the end of an array you have to reinitailize the array
+        ex
+            Declaring the array
+            int[] counts;
+            double[] studentScores;
+            string[] studentNames;
+
+    initializing you can also use values in the arrays and not the size
+        counts = new int[10];
+        studentScores = new double[10];
+        studentNames = new string[10];
+
+    iterating in parallel
+        Console.WriteLine("Student Scores:");
+        Console.WriteLine("---------------");
+        for (int i = 0; i < studentScores.Length; i ++)
+        {
+            Console.WriteLine($"{studentNames[i]}: {studentScores[i]}");
+        }
+
+
+
+    Lists
+        very simmular to arrays but they don't have a fixed size
+        ex
+            declaration
+                List<string> students;
+                List<int> studentGradeLevels;
+                List<bool> isBusRider;
+
+            initializing
+                students = new List<string>();
+                studentGradeLevels = new List<int>();
+                isBusRider = new List<bool>();
+
+        you use the .Add() function to add something to a list
+            studentGradeLevels.Add(gradeLevel);
+
+        to get the length of a list use .Count
+
+        multi-dimentional arrays/lists
+        An array/list of arrays/lists usualy doesn't go higher than 3
+        jagged arrays/lists
+        they are a subclass of multi dimentional arrays where all the lengths are different
+
+
+    functions:
+
+    function declaration without paramiters
+        void Greet()
+        {
+            console.log("Hello!");
+        }
+
+    function declaration with paramiters (no defaults)
+        void Greet(string name)
+        {
+            console.log($"Hello! {name}");
+        }
+
+    function declaration with paramiters and defaults
+        void Greet(string name = "friend")
+        {
+            Console.WriteLine($"Hello, {name}!");
+        }
+
+    some functions return a value
+        if you're going to return a value from a function you replace void with the return DataType
+
+    calling a function without paramiters or with a default you want to use
+        Greet();
+
+    calling a function with paramiters
+        Greet("Zaida");
+
+    Classes:
+
+    a class is your own blueprint for a data type you make
+
+    defining a class
+        public class Student
+        {
+            public string Name;
+            public int Grade;
+            public double GPA;
+        }
+
+        public means feilds can be accsesed outside of the class
+        string Name;, int Grade;, and double GPA; are fields they store information
+
+    creating an Object
+        Student s1 = new Student();
+        s1.Name = "Alice";
+        s1.Grade = 10;
+        s1.GPA = 3.8;
+
+    adding methods
+        basicaly functions you can acsess by puting . at the end of the variable name
+        public class Student
+        {
+            public string Name;
+            public int Grade;
+            public double GPA;
+
+            public void Introduce()
+            {
+                Console.WriteLine($"Hi, I'm {Name} and I'm in grade {Grade}.");
+            }
+        }
+
+    s1.Introduce(); // Output: Hi, I'm Alice and I'm in grade 10.
+
+    adding a constructor
+        public class Student
+        {
+            public string Name;
+            public int Grade;
+            public double GPA;
+
+            // Constructor
+            public Student(string name, int grade, double gpa)
+            {
+                Name = name;
+                Grade = grade;
+                GPA = gpa;
+            }
+
+            public void Introduce()
+            {
+                Console.WriteLine($"Hi, I'm {Name} and I'm in grade {Grade}.");
+            }
+        }
+
+    Student s1 = new Student("Alice", 10, 3.8);
+
+    we've been using public fields and those can lead to unexpectedness by adding properties we can remove this unexpectedness
+
+        public class Student
+        {
+            public string Name { get; set; }
+            public int Grade { get; set; }
+            public double GPA { get; set; }
+
+            public Student(string name, int grade, double gpa)
+            {
+                Name = name;
+                Grade = grade;
+                GPA = gpa;
+            }
+
+            public void Introduce()
+            {
+                Console.WriteLine($"Hi, I'm {Name} and I'm in grade {Grade}.");
+            }
+        }
+
+        private double _gpa;
+
+            public double GPA
+            {
+                get { return _gpa; }
+                set
+                {
+                if (value >= 0 && value <= 4.0)
+                    _gpa = value;
+                }
+            }
+
+    Object Oriented Programing (OOP):
+
+    The four main Pillers of OOP are:
+        1. Encapsulation
+        2. Abstraction
+        3. Inheritance
+        4. Polymorphism
+
+    Encapsulation:
+        the Idea of hiding the internal details of how an Object works and controling how data is accsesed or modified
+        typicaly done through private and public properties and methods
+
+        without Encapsulation:
+
+            public class BankAccount
+            {
+                public double Balance; // Not ideal — can be changed freely from anywhere
+            }
+
+        With Encapsulation:
+            public class BankAccount
+            {
+                private double _balance;
+
+                public double Balance
+            {
+                get { return _balance; }
+            }
+
+            public void Deposit(double amount)
+            {
+                if (amount > 0)
+                {
+                    _balance += amount;
+                }
+            }
+        }
+
+        Now we're protecting the data no one outside the class can change _balance directly they must use the provided method which we can validate and control
+
+    Abstraction:
+        the Idea of only showing the esentials of an Object letting you interact with Complex things in a simple way
+        we use Abstraction a lot and even me typing this is abstacted as I don't have to think about how the characters are getting stored to the computers memory
+
+        Example Coffee Machine:
+            public class CoffeeMachine
+            {
+            public void MakeCoffee()
+            {
+                HeatWater();
+                Brew();
+                Pour();
+            }
+
+            private void HeatWater() { /* internal details */ }
+            private void Brew() { /* internal details */ }
+            private void Pour() { /* internal details */ }
+            }
+
+            all we need to do is call MakeCoffee() we don't need to accsess the internals
+
+    Inheritance:
+        this is when you create a new class that is based on an existing one
+        the new class (child) inherits things from the existing class (parent) and can add or overide behavior
+        this helps you avoid code duplication and supports reusing the code
+
+        Base Class:
+            public class Animal
+            {
+                public string Name { get; set; }
+
+                public void Eat()
+                {
+                    Console.WriteLine($"{Name} is eating.");
+                }
+            }
+
+        Derived Class:
+            public class Dog : Animal
+            {
+                public void Bark()
+                {
+                    Console.WriteLine($"{Name} says: Woof!");
+                }
+            }
+
+        Using inheritance:
+            Dog myDog = new Dog();
+            myDog.Name = "Fido";
+            myDog.Eat();  // Inherited from Animal
+            myDog.Bark(); // Defined in Dog
+
+    Polymorphism:
+        Means "many forms"
+        it allows you to treat different objects as if they are the same type while each still an indevidual
+
+        Usualy happens through method overiding
+
+        public class Animal
+            {
+                public virtual void Speak()
+                {
+                    Console.WriteLine("The animal makes a sound.");
+                }
+            }
+
+        public class Cat : Animal
+            {
+                public override void Speak()
+                {
+                   Console.WriteLine("Meow");
+                }
+            }
+
+        public class Dog : Animal
+            {
+                public override void Speak()
+                {
+                    Console.WriteLine("Woof");
+                }
+            }
+
+        This allows us to do this
+            List<Animal> Creatures = new List<Animal>
+                {
+                    new Cat(),
+                    new Animal(),
+                    new dog(),
+                };
+
+            foreach (var a in animals)
+                {
+                    a.speak(); // they all do their own version of the speak command
+                }
+
+    putting it all together (Example):
+        public abstract class Shape // Abstraction
+            {
+                public abstract double GetArea(); // Abstraction
+            }
+
+        public class Circle : Shape // Inheritance
+            {
+                private double _radius; // Encapsulation
+
+                public Circle(double radius)
+                    {
+                    _radius = radius;
+                    }
+
+               public override double GetArea() // Polymorphism
+               {
+                   return Math.PI * _radius * _radius;
+               }
+            }
+
+        public class Square : Shape // Inheritance
+            {
+                private double _side; // Encapsulation
+
+                public Square(double side)
+                    {
+                        _side = side;
+                    }
+
+                public override double GetArea() // Polymorphism
+                    {
+                        return _side * _side;
+                    }
+            }
+
+    using it:
+
+        List<Shape> shapes = new List<Shape>
+            {
+                new Circle(5),
+                new Square(4)
+            };
+
+        foreach (var shape in shapes)
+            {
+                Console.WriteLine($"Area: {shape.GetArea()}");
+            }
+
+    Data Structures and Algorithms:
+
+    Common Data Structures in C#:
+
+        Stack Last in first out:
+            Stack<string> pages = new Stack<string>();
+            pages.Push("Home");
+            pages.Push("About");
+            pages.Push("Contact");
+
+            string lastVisited = pages.Pop(); // "Contact"
+            Use a stack when you need to reverse somthing or track hystory like a web page
+
+        Queue first in first out:
+            Queue<string> customers = new Queue<string>();
+            customers.Enqueue("Alice");
+            customers.Enqueue("Bob");
+            customers.Enqueue("Charlie");
+
+            string nextCustomer = customers.Dequeue(); // "Alice"
+            Use a Queue when you need to prosses Items in order like Task schedualing
+
+        Dictionary stores key value pairs:
+            Dictionary<string, int> nameToScore = new Dictionary<string, int>();
+            nameToScore["Alice"] = 95;
+            nameToScore["Bob"] = 87;
+
+            int score = nameToScore["Alice"]; // 95
+            Use dictionary when you need fast lookup by a unique key
+
+        Hash set stores unique values and allows for fast checking of their existance:
+            HashSet<string> seenNames = new HashSet<string>();
+            seenNames.Add("Alice");
+            seenNames.Add("Bob");
+            seenNames.Add("Alice"); // won't be added again
+            Use hash set when you want to avoid duplicits
+
+    Algorithms are a set of instructions to solve a problem
+
+Course 2 Website design:
+    
+    HTML:
+        HTML pages are made up of the following parts:
+
+            The Doctype, which for our purposes will always be HTML.
+            The page or document is outlined by the <html> and </html> tags. All of the content for the page is within these tags. This tag also has a lang attribute whose value indicates the language that our content will be written in. Accordingly, we will use <html lang="en">.
+            The head is contained within the <head> and </head> tags. Content within the head is (mostly) not displayed. This includes the title for the page between <title></title> tags (which is displayed in the tab displaying the webpage), the favicon that shows up on your browser tab (to the left of the title of the webpage), meta tags, and links to CSS and JavaScript files that the page uses. You will want to specify <meta charset="UTF-8"> to make sure our HTML displays properly on our webpage.
+            The body is contained within the <body> and </body> tags. This is where the visible content of the page is and can be divided among the following tags if you so desire (these are more for organizing related content and could just be replaced with divs):
+                <header></header>, useful to group introductory content like headings, logos, a search form, etc.; heading elements can be anywhere.
+                <main></main>, where most of your content will go.
+                <footer></footer>, for content that would be displayed at the bottom of the page, like copyright information and related links.
+
+                The content of the page is made up of more elements, as well as content within elements. Common elements include the following:
+            HTML Content Elements HTML Element 	
+
+            Definition
+            <p></p> 	
+
+            Paragraph: one way to lay out text on the page.
+
+            
+            <a></a> 	
+
+            Anchor: used for hyperlinks.
+            <div></div> 	
+
+            Division: used as a container for other elements, often used by CSS to style elements.
+            <section></section> 	
+
+            Section: similar to div's, but they're used to group thematically related content.
+            <span></span> 	
+
+            Span: used similarly to division tags but used for inline styling (like highlighting individual words within a block of text).
+            <img></img> 	
+
+            Image: for including images on a page.
+            When adding images to your site, there are a few things you need to keep in mind.
+
+                <img /> places an image on the page. Make sure to provide values for the four following attributes of the <img /> tag: 
+
+                    src=”image.jpg” tells the browser which image to load.
+                    alt=”description” gives the substitute text for the image that is used with assistive devices.
+                    width=”” gives the width of the image.
+                    height=”” gives the height of the image.
+
+                When setting the width and height, the number inside the quotes is understood to be pixels- no further information is needed.
+                Image Formats
+
+                The perfect image would be high quality and would be a small file size.
+
+                .gif does well at compressing large areas of a single color, but it only has a limited color space of 256 colors and is most popular for small, animated videos.
+
+                .svg is good for logos and icons because it uses vector lines, and no illustration will get pixilated because it doesn’t use pixels.
+
+                .jpg is great for photos by balancing quality and file size during compression.
+
+                .png is for images that need transparency and is good at compression for photos and images. 
+
+                Consider the size of the image, the file format, and compressing settings. You want your images to download as fast as possible.
+                Responsive Images and Width
+
+                If you want to load different images based on the size of the user's screen, you can specify the value of the "srcset" attribute of an <img /> tag as a comma-separated list of image names and intrinsic sizes (representing the actual size of the image using the unit "w"); in conjunction, you can specify the value of the "sizes" attribute as a comma-separated list of a media condition (for example, (min-width: 650px)) and slot size for the image to fill if the media condition is true. The following example renders image1.jpg with a width of 480px when the screen width is greater than 650px, image2 at a width of 300px when the screen width is less than 650px but greater than 465px, and image3 at a width of 200px for a screen width that's less than 465px. The alt text applies to whatever image ends up being rendered:
+
+                <img
+                srcset="image1.jpg 480w, image2.jpg 800w"
+                sizes="(min-width: 650px) 480px, (min-width: 465px) 300px,
+                        200px"
+                src="image3.jpg"
+                alt="Example Image" 
+                />
+
+                
+
+                
+
+                srcset=”comma-separated list of the different image copies by viewport width or image pixel width”
+                Responsive Pictures
+
+                Another approach to loading different images based on the size of the user's screen is to use the <picture> tag to enclose <source> tags and a fallback <img /> tag.  By providing each source tag with a value for the "media" attribute (for example, "(min-width:650px)") and the "scrset" attribute (for example, "image1.jpg"), you can have different images load for different screen sizes. The following example renders image1.jpg when the screen width is greater than 650px, image2 when the screen width is  less than 650px but greater than 465px, and image3 for a screen width that's less than 465px. The alt text applies to whatever image ends up being rendered:
+
+                <picture>
+                    <source media="(min-width:650px)" srcset="imgage1.jpg">
+                    <source media="(min-width:465px)" srcset="image2.jpg">
+                    <img src="image3" alt="Example Image" style="width:auto;">
+                </picture>
+                Figure and Figcaption
+
+                    <figure> shows anything that appears as a figure illustrating something.
+
+                    <figcaption> provides the browser with more information about a concept that needs a caption.
+
+
+
+            <h1></h1>, <h2></h2>, ... 	
+
+            Headings: titles that range from <h1> to <h6>; the greater the number in the tag, the smaller the size of the heading.
+
+            (If your site has a pattern of subsections, it would make sense for the outer sections to have larger text sizes.)
+
+            
+
+            Sometimes, you may want to organize your content in a list. There are a few different types of lists in HTML.
+            HTML List Elements HTML Element 	
+
+            Definition 	
+
+            Unordered List: a bulleted list of items.
+            <ul></ul> 	
+
+            Ordered List: a numbered list of items.
+            <ol></ol> 	
+
+            List Item: these elements nest within the Ordered or Unordered List elements and define the items in the list.
+            <li></li>
+
+        HTML Form Elements:
+            Module Overview - HTML Form Elements
+                Often, you will want to save information that the user is willing or desiring to provide. Ultimately, this will probably involve a database and an intermediary backend. For now, we will investigate the frontend side of this process: html forms. 
+
+                In this module, you will:
+
+                    Create an html form
+                    Provide inputs within a form
+                    Label inputs
+                    Handle form submission
+                    Log a message to the browser console.
+
+            HTML Form Overview
+                Before user information can be processed and saved in a database, it needs to be submitted. Before it can be submitted, it needs to be inputted. This is where html forms come in.
+
+                In this page, you will:
+
+                    Review the tags that comprise a form in html.
+
+            HTML Form Basics
+                HTML Forms are used to capture data that is input by the user. They nest input elements that users can enter information into. In order to be submittable, forms also need to nest an input or button with the type of "submit".  HTML forms can send HTTP requests when submitted if the "method" attribute is set to an HTTP verb and the "action" attribute is set. HTTP (hypertext transfer protocol) requests are the most common way for data to be transmitted through the web (https, in particular, which is the secure counterpart to http), and HTTP verbs specify the operation being attempted. If you're creating data, you typically send a request with the POST http verb. If you're retrieving data, you typically send a GET request. If you're updating data, you typically send a PATCH request (or a PUT request for a full replace). If you're deleting data, you typically send a DELETE request. Backend APIs create endpoints that handle requests mapped to these http verbs.
+
+                
+
+                With forms, you will usually send a POST request to your backend or to some third-party API (like the weather forecasting API you used during the Intro class, if you took that class) when submitting the form. You can also intercept the submission process on the frontend (before the request is sent to the intended target) using JavaScript. More about that later.
+
+            HTML Form Elements
+                Some important elements that nest inside forms include: 
+                    <input></input> 	
+
+                    Input: a single-line text box; The type attribute determines the datatype the user can input. If type="number" for example, the input element will not accept string characters. Inputs can have a "placeholder" attribute, whose value will appear in the text box before the user has typed anything in.
+                    <label></label> 	
+
+                    Label: a text label for an input; to keep an input and label grouped, set the for attribute of the label equal to the id of the input.
+                    <textarea></textarea> 	
+
+                    Textarea:  a way to submit paragraphs worth of text; can have a placeholder attribute.
+                    <select></select> 	
+
+                    Select: a dropdown input whose choices are specified with <option></option> elements, each of which has a value attribute that you can set. (The text between the options is what the user will see when selecting the option.)
+                    <button></button> 	
+
+                    Button: a button; type="submit" indicates that if this button is pressed, the form has been submitted.
+
+            Form Example
+                As an example, if we were to use PHP for our backend, we could create a file called create_order.php and write the following code to handle a user creating an order:
+
+                <form method="POST" action="create_order.php">
+                    <label for="product-name">Product:</label>
+                    <input id="product-name" type="text"/>
+
+                    <label for="quantity">Quantity:</label>
+                    <input id="quantity" type="number"/>
+
+                    <label for="shipping-type">Shipping Type:</label>
+                    <select id="shipping-type">
+                        <option value="normal">Normal</option>
+                        <option value="fast">Fast</option>
+                        <option value="next">Next Day</option>
+                    </select>
+
+                    <label for="delivery-instructions"></label>
+                    <textarea id="delivery-instructions" placeholder="Enter your instructions here..."></textarea>
+
+                    <button type="submit">Create Order</button>
+                </form>
+
+
+                If you end up using Nextjs for a fullstack JavaScript application, you might instead link the action of such a form to a specific server action (you can learn more about that in the Fullstack Integration class).
+
+            HTML Forms Reference Sheet
+                Here is an updated reference sheet that includes the HTML elements/attributes you learned about in the HTML Form Code Along assignment. Feel free to reference this page as needed.
+
+                You will find the material from the previous reference page included towards the bottom of this page.
+
+                In this page, you will:
+
+                    Review the attributes and use cases of tags that comprise html forms.
+
+                HTML Forms Reference Table HTML Element 	
+
+                Definition
+                <form></form> 	
+
+                Form: Used to group form elements.
+                <input></input> 	
+
+                Input: an input field. The type attribute determines the datatype the user can input. If type="number" for example, the input element will not accept string characters. Type can have a "placeholder" attribute, whose value will appear in the text box before the user has typed anything in. The type can also have a value of "submit", which will make the field act as a submit button for the form.
+                <label></label> 	
+
+                Label: a text label for an input; to keep an input and label grouped, set the for attribute of the label equal to the id of the input.
+                <textarea></textarea> 	
+
+                Textarea:  a way to submit paragraphs worth of text; can have a placeholder attribute.
+                <select></select> 	
+
+                Select: a dropdown input whose choices are specified with <option></option> elements, each of which has a value attribute that you can set. (The text between the options is what the user will see when selecting the option.)
+                <button></button> 	
+
+                Button: a button; type="submit" indicates that if this button is pressed, the form has been submitted.
+                <blockquote></blockquote>
+                    
+
+                Blockquote: Used to display a quote.
+
+                
+                HTML Form Elements Attributes Table HTML Attribute 	HTML Element 	
+
+                Definition
+                name 	This attribute exists on all html elements that could appear within the body tag. 	
+
+                Name: used to specify the name of the element (it's good practice for each element to have a unique name if you need to assign it a name).
+                value 	input (number, text, radio, checkbox types), option (within a select), textarea (in HTML, there is no value attribute for a textarea- it encloses the relevant text between its tags; in JavaScript, however, text area's do have a "value" property that you can use to get you the same text) 	
+
+                Value: used to specify the value of the form element.
+                placeholder 	input (text and number types), textarea 	
+
+                Placeholder: used to specify the placeholder text of the form element.
+                required 	input (all types except submit), textarea, select 	
+
+                Required: used to specify that the form element is required. The user will not be able to submit the form if any required fields are empty.
+                disabled 	This attribute exists on all HTML elements that could appear within the body tag. 	
+
+                Disabled: used to specify that the form element is disabled (if it's an input field, you won't be able to type into it, for example).
+                checked 	input (radio and checkbox types) 	
+
+                Checked: used to specify that the form element is checked. This is relevant to radio inputs (where only one option can be selected) and checkbox inputs (where multiple options can be selected)
+                for 	label 	
+
+                For: used to specify the name of the form element that the label is associated with.
+
+                
+                Previously Learned Elements
+                HTML Basics Reference Table HTML Element 	
+
+                Definition
+                DOCTYPE 	
+
+                Document Type: the document type declaration.
+                html 	
+
+                Root: the root element of an HTML document.
+                head 	
+
+                Head: the head element - contains the metadata about the document.
+                title 	
+
+                Title: assigns the title of the document.
+                meta 	
+
+                Meta: the meta element provides additional information about the document.
+                link 	
+
+                Link: allows you to link to external resources like style sheets.
+                script 	
+
+                Script: used to include JavaScript in an HTML document.
+                style 	
+
+                Style: used to include CSS in an HTML document.
+                body 	
+
+                Body: contains the actual content of the document.
+                header 	
+
+                Header: used to group introductory or navigational aids within the body.
+                footer 	
+
+                Footer: used to group footer content within the body.
+                main 	
+
+                Main: used to group the main content within the body.
+                <!-- --> 	
+
+                Comments: Used to describe your code.
+                <p></p> 	
+
+                Paragraph: one way to lay out text on the page.
+                <a></a> 	
+
+                Anchor: used for hyperlinks.
+                <div></div> 	
+
+                Division: used as a container for other elements, often used by CSS to style elements.
+                <section></section> 	
+
+                Section: similar to divs, but they're used to group thematically related content.
+                <span></span> 	
+
+                Span: used similarly to division tags but used for inline styling (like highlighting individual words within a block of text).
+                <img></img> 	
+
+                Image: for including images on a page.
+                <h1></h1>, <h2></h2>, ... 	
+
+                Headings: titles that range from <h1> to <h6>; the greater the number in the tag, the smaller the size of the heading.
+
+                (If your site has a pattern of subsections, it would make sense for the outer sections to have larger text sizes.)
+                <ul></ul> 	
+
+                Unordered List: a bulleted list of items.
+                <ol></ol> 	
+
+                Ordered List: a numbered list of items.
+                <li></li> 	
+
+                List Item: these elements nest within the Ordered or Unordered List elements and define the items in the list.
+
+    JavaScript:
+        Language Rules and Style Conventions
+
+            Every statement in JavaScript needs to be terminated with a ";" character. Variables and functions are conventionally named using camelCase. Classes are conventionally named using PascalCase (camelCase, but with the first letter capitalized). Use console.log() to print messages to the console in the developer tools of the browser you are using. Single-line comments are created using "//", and multi-line comments are created using "/* */". 
+
+        
+
+            Primitive Data Types:
+
+            string: a sequence of characters within quotation marks or bat-wings (``) representing text; bat-wings are used for interpolation like so: `The current time is ${currentTime}` (where currentTime is a variable) 
+            number: an integer or a decimal; the mathematical operators +,-,/,*,% (returns the remainder after division) can be applied to number values; ex: 3 + 5 will evaluate to 8
+            bigint: only use this if you're dealing with integers greater than 2^53 - 1
+            boolean: true or false; operators like >,<,>=, <=, ==, === compare two values and evaluate to true or false; the OR operator "||" and the AND operator "&&" can also compare conditions and evaluate to true or false
+            undefined: if a variable has this value, it hasn't been initialized yet
+            symbol: used for creating values that are guaranteed to be unique
+            null: represents a non-existent or invalid value
+
+        
+
+            Most of the time you will be assigning string, number, or boolean values to variables. You can use the typeof operator to determine the type of a value. JavaScript is a dynamic language, however, meaning that when you declare a variable you cannot require its value to be of a particular type, nor can you specify the types of a function's parameters, nor can you specify the type of a function's output. Additionally, all values are either "truthy" or "falsy," meaning that non-boolean values can be treated like boolean values (usually to check whether or not has actually been assigned a value yet). The number 0 will loosely be treated like the value "false", and any other number will loosely be considered "true".  An empty string ("") will also be loosely treated like the value "false". 
+
+        
+
+            Examples:
+
+            console.log("Hello World"); //this will print the string "Hello World" to the console 
+            /* this will create
+            a multi-line
+            comment
+            */
+            console.log(typeof 6); //this will print "number" to the console
+            if("" || 0 || false){
+            console.log("This will not be printed to the console, because the expression of the if-statement does not evaluate to true.");
+            }
+
+        Variables
+
+            In JavaScript, variables are declared with let or const (you may sometimes see var as well in older code, but that has fallen out of fashion due to hoisting concerns). Variables declared with const cannot be reassigned values after they have been initialized, and they must be initialized when declared. Variables declared with let do not need to be initialized right away, and can have their values reassigned at any time. Variables are also block-scoped, meaning they can be accessed within the block they are defined in (and within any control flow that is on the same level). It's good practice to declare variables as const by default to minimize the chances of altering them by accident (you can always change a variable from const to let later if you need that variable to be reassignable). 
+
+            Examples:
+
+                const timerDuration = 1000;
+                let darkModeHasBeenToggled; //this variable will have a value of undefined to begin with
+                darkModeHasBeenToggled = false; //the value for this variable is now the boolean value "false"
+                darkModeHasBeenToggled = true; //the value for this variable is now the boolean value "true"
+                if(true){
+                let maxBrightnessLevel = 10; //this variable will not be accessible outside ("above") this if statement
+                darkModeHasBeenToggled = false; //the value for this variable is now the boolean value "false"
+                if(true){
+                    const minBrightnessLevel = 0; //this variable will not be accessible outside ("above") this if statement
+                    maxBrightnessLevel = 5; 
+                }
+                }
+
+        Data Structures
+
+            Arrays store lists of values, whose types can be mixed. 
+
+            const mixedTypeArray = ["1", 1, true]
+
+            Their indices are counted from 0, and you can access the element of an array at a particular index with square brackets like so:
+
+            console.log(mixedTypeArray[0]); //will print "1" to the console
+
+            
+
+            Objects can store key-value pairs like so:
+
+            const product = {
+
+            name: "shovel",
+
+            inventory: 10,
+
+            price: 12
+
+            }
+
+            
+
+            You can find the value for an object's key using either the "." operator or brackets like so:
+
+            console.log(product.name); //this will print "shovel" to the console
+
+            console.log(product["price"]); //this will print "12" to the console
+
+            
+
+            You can set the values for keys of objects using either the "." operator or brackets like so (this will overwrite the existing value, or will create a new value):
+
+            product["name"] = "pickaxe";
+            product.price = 20;
+
+            
+
+            Note that you can change the value of an object's key even if you declared the variable as a const.
+
+        Control Flow: Loops
+
+            For-loops have the following structure:
+
+            for(let time = 1; time <= 4; time++) {
+                console.log(`It is ${time} o'clock.`);
+            }
+            /* Output:
+            It is 1 o'clock.
+            It is 2 o'clock.
+            It is 3 o'clock.
+            It is 4 o'clock.
+            */
+
+            While loops have the following structure:
+
+            console.log("Knock knock!");
+            let whosThere = prompt("Who's there?"); // Initialize
+            while(whosThere == "banana") { // Iterate
+                console.log("Knock knock!");
+                whosThere = prompt("Who's there?"); // Update
+            }
+            if(whosThere == "orange") {
+                console.log("Orange you glad I didn't say banana?!");
+            } else {
+                console.log("You messed up the joke!");
+            }
+
+            Do-while loops are like loops, but always execute at least once:
+
+            do {
+                // code to be executed
+            } while (condition);
+
+        Control Flow: Conditional Statements
+
+            JavaScript allows conditions to restrict the flow of code execution using if-statements, switch statements, and ternary operators.
+
+            
+
+            If/else-if statements have the following structure:
+
+            let hour = 23;
+
+            let greeting;
+
+            if(hour >= 1 && hour < 12 ){
+
+            greeting = "Good morning!"
+
+            }else if(hour > 12 && hour <= 18) {
+
+            greeting = "Good afternoon!"
+
+            }else{
+
+            greeting = "Good evening!"
+
+            }
+
+            console.log(greeting); //this will print "Good evening!"
+
+            
+
+            Switch statements have the following structure:
+
+            let age = 21
+
+            switch (age) {
+            case 5:
+                console.log("You are starting kindergarten!");
+                break;
+            case 13:
+                console.log("Sorry about middle school...");
+                break;
+            case 17:
+                console.log("How do you feel about high school?");
+                break;
+            default:
+                console.log(`I bet you enjoy being ${age}!`);
+                break;
+            }
+                
+
+            Ternary statements have the following structure:
+
+            let onlyOriginalTrilogy = false;
+            let numberOfGoodStarWars = onlyOriginalTrilogy ? 3 : 9; // numberOfGoodStarWars gets the value 9
+            age = 40;
+            age >= 55 ? console.log("Senior discount!!") : console.log("Full price for you!"); //prints out "Full price for you!"
+
+        Functions
+
+            Functions have the following structure and invocations:
+
+
+            function nameOfFunction(parameter1, parameter 2){
+                //code to execute
+            }
+
+            //function parameters can have default values, but parameters that have default values should be listed at the end, not at the beginning
+            function multiplyNumbers(number1, number2 = 2){
+                return number1 * number2;
+            }
+            console.log(multiplyNumbers); //will print out information about the function
+            console.log(multiplyNumbers(1, 2)); //will print 2 to the console
+
+            let name = "John";
+            
+            //functions can be saved as variables:
+            const appendStringToName= (stringToAppendToName) => {
+                name += stringToAppendToName;
+            } //doesn't return anything, but modifies the value of the "name" variable
+                
+            appendStringToName(" Smith");
+            console.log(name); //will print "John Smith" to the console
+
+            //functions can be passed in as parameters to other functions
+            function executePassedInFunctionThatRequiresOneParameter(functionToExecute, parameter){
+                functionToExecute(parameter);
+            }
+
+            executePassedInFunctionThatRequiresOneParameter(appendStringToName, "-Doe");
+            console.log(name); //will print out "John Smith-Doe" to the console
+
+            
+
+            Functions are called (or "invoked" or "executed") by putting parentheses after the function name (with some exceptions), and by listing values for the parameters within the parentheses (any parameters not supplied will be treated as undefined). Functions within classes are called "methods" and can be called on instances of classes. Additionally, there are a number of string methods and array methods that are quite handy.
+
+            Here are some useful string methods:
+
+                .length: get the length of a string
+                .concat(): append a string
+                .split(): returns an array of substrings separated by the given separator
+                .includes(): returns true if the passed-in string is a substring of the original string
+                .slice(): returns a substring of the original string between the specified indices
+                .toUpperCase(): changes the original string to be all upper case
+                .toLowerCase(): changes the original string to be all lower case
+                .replace(): returns a copy of the original string but with a specified substring replaced with a specified replacement
+
+            
+
+            Examples:
+
+                console.log("hello".concat(" world")); //will print "hello world" to the console
+                console.log("hello world".split(" ")); //will print out ["hello", "world"] to the console
+                console.log("hello world".includes("hello")); //will print out true to the console 
+                console.log("hello world".slice(0, 5)); //will print out "hello" to the console
+                console.log("hello world".replace("world", "there")); //will print out "hello there" to the console
+
+            Here are some useful array methods:
+
+                .length: get the length of an array
+                .concat(): add the contents of the parameter array to the end of the original array
+                .find(): returns the first element of an array that meets the condition, or undefined if no match is found
+                .forEach(): performs a given code block for each element of the array
+                .join(): returns the contents of the array combined as a single string
+                .map(): returns a new array populated by executing a code block for each element in the array
+                .pop(): removes the last element of the array and returns it
+                .push(): adds the specified element to the end of the original array
+                .reduce(): returns a single value by accumulating each element in a specified fashion
+                .reverse(): reverse the order of elements in the original array
+                .slice(): returns a sub-array of the original array between the specified indices
+                .sort(): changes the order of the elements in the array based on a specified condition
+                .splice(): modifies the original array by removing a specified number of elements at a specified index, and optionally inserting elements at that index
+
+            
+
+            Examples:
+
+                ["hello", "world"].forEach((element) => {
+                console.log(element);
+                }); //will print "hello" and "world" on different lines in the console
+                console.log(["hello", "world"].join(" ")); //will print "hello world" to the console
+                console.log("hello world".split(" ")); //will print out ["hello", "world"] to the console
+                console.log("hello world".includes("hello")); //will print out true to the console 
+                console.log("hello world".slice(0, 5)); //will print out "hello" to the console
+                console.log("hello world".replace("world", "there")); //will print out "hello there" to the console
+
+                
+
+            Examples using arrow (anonymous) functions:
+
+                ["hello", "world"].forEach((element) => {
+                console.log(element);
+                }); //will print "hello" and "world" on different lines in the console
+                //the curly braces {} are only needed if your code block is longer than 1 line
+
+                const upperCaseGreetingStrings = ["hello", "world"].map((element) => {
+                return element.toUpperCase();
+                }); //the curly braces and the return statement are only necessary if your code block is longer than one line
+                console.log(upperCaseGreetingStrings); //will print ["HELLO", "WORLD"] to the console
+
+                const initialSum = 0;
+                const sum = [1, 2, 3, 4, 5].reduce((accumulator, currentElement) => accumulator + currentElement, initialSum);
+                //this returns the result of adding the currentElement to the accumulator element by element, with the accumulator being the return value of each prior execution, 
+                //starting with the initial value: the accumulator has the initial value of 0, so the first iteration returns 0 + 1, changing the accumulator from 0 to 1 for the next iteration;
+                //the accumulator is now 1, so the second iteration returns 1 + 2, changing the accumulator from 1 to 3 for the next iteration;
+                //the accumulator is now 3, so the third iteration returns 3 + 3, changing the accumulator to 6 for the next iteration; and so on.
+
+                console.log(sum); //prints 15 to the console.
+
+                const people = [{name: "Terry", heightInInches: 62}, {name: "Patrick", heightInInches: 70}, {name: "Kerry", heightInInches: 68}];
+                people.sort((previousPerson, currentPerson) => {
+                if(previousPerson.heightInInches < currentPerson.heightInInches){
+                    return -1; //move this person to the left
+                }else if(previousPerson.heightInInches == currentPerson.heightInInches){
+                    return 0; //keep this person at this spot
+                }else{
+                    return 1; //move this person to the right
+                }
+                }); 
+                console.log(people); //will print [{name: "Terry", heightInInches: 62}, {name: "Kerry", heightInInches: 68}, {name: "Patrick", heightInInches: 70}] to the console
+
+        Classes in JavaScript Overview
+
+            JavaScript, like C#, allows creating classes so that you can encapsulate state (properties) and behavior (methods) within a template. Here are some rules to keep in mind:
+
+                Instance Members
+                    Members are public by default, but can be made private by prepending the "#" character to the name of the member.
+                    There is no "protected" keyword, but the convention is to prepend the names of members that are supposed to be internal with the "_" character.
+                    Static members are accessed at the class level, and designated with the "static" keyword
+                    Properties
+                        Can have default values.
+                        Are not bound to a particular type.
+                        Can be defined in the body of the constructor using the "this." keyword without having to define them outside the constructor.
+                        Can have simplified getters using the "get " keyword that eliminate having to call the getter with "()".
+                    Methods
+                        Do not use the function keyword
+                        Do not specify types for their parameters or for what they return.
+                        Can have default values for parameters, but they should be listed last after parameters that do not have default values
+                Inheritance
+                    Inheritance is specified with the "extend" keyword, and methods can be overridden.
+                    Inherited methods can invoke the parent method of the same name using the "super" keyword.
+                    Methods cannot be overloaded- JavaScript will simply execute whichever method of the same name is defined last (overwriting the previous ones);  default parameters can be a workaround for overloading though.
+                    Constructors can call the parent constructor using super(), but this should be done before you use the "this" keyword to access the current instance of the class. 
+
+            
+
+            Example:
+
+
+                class Vehicle {
+                #vin;
+
+                constructor(make, model, year) {
+                this.make = make;
+                this.model = model;
+                this.year = year;
+                this.#vin = Vehicle.generateVIN();
+                }
+
+                static generateVIN() {
+                return Math.floor(Math.random() * 1_000_000);
+                }
+
+                // Traditional getter method
+                getVIN() {
+                return this.#vin;
+                }
+
+                // Getter using `get` syntax
+                get description() {
+                return `${this.year} ${this.make} ${this.model}`;
+                }
+
+                start() {
+                console.log(`Starting ${this.make} ${this.model}`);
+                }
+                }
+
+                class ElectricVehicle extends Vehicle {
+                constructor(make, model, year, batteryLevel) {
+                super(make, model, year); // 🔹 Call parent constructor
+                this.batteryLevel = batteryLevel;
+                }
+
+                start() {
+                super.start(); // 🔹 Call parent method
+                console.log(`Battery at ${this.batteryLevel}%`);
+                }
+
+                //factory method:
+                static createDefaultEV() {
+                return new ElectricVehicle("Generic", "EV", 2025, 100);
+                }
+                }
+
+                // 🔸 Example usage
+                const ev = ElectricVehicle.createDefaultEV();
+
+                ev.start(); // Starting Generic EV ... Battery at 100%
+                console.log("VIN:", ev.getVIN()); // Traditional getter
+                console.log("Description:", ev.description); // Uses `get` accessor
+
+        A Brief Introduction to the DOM
+
+            For JavaScript to be able to change the content of a webpage, it uses the Document Object Model (DOM) to represent 
+            the currently loaded HTML file as a DOM tree. Recall that HTML elements can be nested inside each other; thus, the 
+            DOM tree consists of the <html> tag as the root of the tree, with the head and body tags therein as child nodes 
+            (branches) of the tree. The head tag would likewise have src tags as child nodes, and the body tag would have, for 
+            example, h1, p, div, and ul tags as child nodes. The ul tags would have li tags as child nodes, which might have 
+            child nodes of their own, and so on.
+  
+        Using a Document Interface API
+
+            In addition to representing the HTML of the loaded webpage as a DOM tree, JavaScript exposes an API (Application Programming Interface) by which you can select the child nodes of an HTML element, get the attributes of an HTML element, and set the attributes of an HTML element (including the style attribute; note that the head tag is read-only, so you can't change anything in there). This API is called the Document Interface. When the webpage is loaded, JavaScript instantiates an instance of this interface using the root <html> tag of the DOM tree, creating the  document object. We can then invoke the following methods of the Document Interface on the document object to select HTML elements on the webpage:
+
+                Document.querySelector()
+                    document.querySelector("body"); //returns the body element
+                    document.querySelector("#user-input"); //returns the element with ID 'user-input'
+                    document.querySelector(".my-class"); //returns the first element of class "my-class"
+                    document.querySelector("a[href="/"]) //returns the first link whose href attribute has the value "/"
+                    Note that document.querySelector() only returns a single element, so if a selector that matches multiple elements is passed as the argument, it will return the first one.
+                Document.querySelectorAll()
+                    document.querySelectorAll("p") //returns all p elements in the document
+                    document.querySelectorAll("ul li") //returns all li elements that hat are inside any ul elements
+                    document.querySelectorAll(".container") //returns all elements that have the "container" class name
+                    If there are no matches, returns something similar to an empty array.
+                Document.getElementById()
+                    document.getElementById("todo-list") //returns the element with the id "todo-list"
+                    id's are supposed to be unique, but if there are multiple elements with the same id, this will return the first one.
+                    if no element with this id is found, will return null.
+                Document.getElementsByClassName()
+                    document.getElementsByClassName("card") //returns all of the elements that have the "card" class name
+                    document.getElementsByClassName("card")[0] //returns the first element that has the "card" class name, or undefined if there is no such match
+                Document.getElementsByTagName()
+                    document.getElementsByTagName("h3") //returns all of the h3 elements 
+                    returns something like an empty array if there are no elements of the tag name 
+
+        Instance Properties Associated with the Element Class
+
+            In JavaScript, selected elements are instances of the Element class, which has some helpful instance properties and methods available, including:
+
+                Instance Properties
+                        id property
+                            Exposes the id of a selected HTML element.
+                            const idOfProfilePictureElement = document.getElementById("profile-picture").id //would set the value of the idOfProfilePictureElement variable to "profile-picture"
+                        innerHTML property
+                            Gets or sets the HTML inside a selected element.
+                            const htmlInsideFirstDivTag = document.querySelector("div").innerHTML //would set the value of the htmlInsideFirstDivTag variable to a string representation of whatever HTML is inside the first div tag, even if it's just text alone
+                            document.querySelector("div").innerHTML = "<p>Hello World</p>" //replaces the html inside the first div tag with a paragraph element containing the text "Hello World"
+                            document.querySelector("div").innerHTML += "<p>What a beautiful day!</p>" //concatenates the html inside the first div tag with a paragraph element containing the text "What a beautiful day!" so that the div now contains the following markup: <p>Hello World</p><p>What a beautiful day!</p>
+                Instance Methods
+                    getAttribute(attributeName)
+                        Returns a string representing the value of the given attribute for the selected element.
+                        document.getElementById("google-icon").getAttribute("id") //would return "google-icon" if an element with the value of "google-icon" for its id attribute was indeed found, or would throw an error if not
+                        document.querySelector("input[type='text']").getAttribute("type") //would return "text" if an input element with the value of text for its type attribute was indeed found, or would throw an error if not
+                    setAttribute(attributeName)
+                        Sets the value of the given attribute.
+                        document.querySelector("a[href='/']").setAttribute("href", "/products") //would find the first link whose href attribute had the value of "/", and would set the value of its href attribute to "/products
+
+        A Brief Introduction to Event Listeners
+
+            Think of a doorbell. When someone presses it (an event), a bell rings inside the house (an action is executed). Event 
+            listeners work similarly in the digital realm. Event listeners patiently "wait" for specific user actions or "events" and 
+            respond by executing specified functions or behaviors. 
+
+            Event listeners enable interactivity and can add dynamic behavior to sites. Multiple event listeners can be added to any particular html element. If you want, you can also detect events on the entire page.
+
+                Interactivity: By responding to user behaviors, web pages become more engaging.
+                Dynamic Behavior: Web content can adapt in real-time, based on user actions or based on scheduled actions (using setInterval or setTimeout).
+
+        Implementing Event Listeners
+
+            Html elements have attributes for events whose values can be JavaScript written in a single string. For example, if you have written a handleClickOnButton between your <style> tags, you can make that function execute when a button is clicked as follows:
+
+            <button onclick="handleClickOnButton()">Click me</button>
+
+            
+
+            However, it is best practice in modern web development to "separate your concerns" by adding potentially multiple event listeners to html elements in the JavaScript code itself:
+
+            let btnElement = document.getElementById("myButton"); 
+
+            btnElement.addEventListener("click", function() { 
+            btnElement.textContent = "You clicked me!"; 
+            });
+
+            Here, a button's text changes upon a click, showcasing simple DOM manipulation.
+
+            Exploring Event Types
+
+            Numerous events can be detected and responded to:
+
+            click: Triggered when an element is clicked.
+
+            btnElement.addEventListener("click", function() { 
+            document.body.style.backgroundColor = "lightblue"; 
+            });
+
+            
+
+            mouseover: Fires when the mouse hovers over an element.
+
+            let imgElement = document.getElementById("imageID"); 
+            imgElement.addEventListener("mouseover", function() { 
+            imgElement.src = "new-image-source.jpg"; 
+            });
+
+            
+
+            keydown: Activated upon pressing a keyboard key.
+
+            document.addEventListener("keydown", function(event) { 
+                    if(event.key === "r") { 
+                        document.body.style.backgroundColor = "red"; 
+                    } 
+            });
+
+            
+
+            submit: Detected when a form is submitted.
+
+            let formElement = document.getElementById("signupForm"); 
+            formElement.addEventListener("submit", function(e) { 
+                    e.preventDefault(); // Prevents actual form submission 
+                    alert("Form submitted!"); 
+            });
+
+            The Power of Event Listeners
+
+            Event listeners can be helpful in a few key ways.
+
+                Enhanced User Engagement: Web elements come to life, responding to user interactions.
+                Dynamic Content Generation: Based on actions, content can be added, removed, or modified.
+                Instant Feedback: Validate form inputs on-the-fly, giving users immediate feedback.
+
+            Detaching Event Listeners
+
+            To cease listening for an event, the removeEventListener method is useful.
+
+            function changeText() { 
+            btnElement.textContent = "Once clicked!"; 
+            btnElement.removeEventListener("click", changeText); 
+            } 
+
+            btnElement.addEventListener("click", changeText);
+
+            Here, after one button click and text change, the listener detaches, preventing further changes.
+
+            Common Questions & Best Practices
+            Common Questions
+
+                Can multiple event listeners be added to one element?
+                    Yes, an element can have multiple listeners, even for the same event (which is not typical).
+                Why pick addEventListener over HTML events?
+                    Separation of concerns is highly valued in modern web development because you decouple possible areas of failure. Also, having your JavaScript be written in a string as the value for an HTML attribute is not ideal. Ultimately, both approaches can be used, but HTML events will be listened for first.
+                Can I detect events on the entire page?
+                    Absolutely! Use document or window as your target to detect broader events.
+
+            Best Practices
+
+                Descriptive Functions: Use self-explanatory names for functions, e.g., handleImageHover() over funcX().
+                Event Delegation: Instead of listeners on many similar elements, delegate by targeting their shared parent.
+                Optimization: Excessive event listeners can affect performance. Always optimize for larger applications.
+                Event Capturing or Bubbling: If nested elements listen for the same event, consider whether or not you want the elements to listen in order of descending scope ("capturing") or ascending scope ("bubbling up").
+                CSS Delegation: It's possible to apply CSS styles when the user hovers over an element using just CSS. Consider whether or not your logic is complex enough to warrant a JavaScript event listener instead of a simple CSS pseudo-class.
+
+        Module Overview - OOP in JavaScript
+
+            By now you're familiar with the basics of JavaScript, but we haven't done much with classes yet. Before we move on to TailwindCSS, let's take this opportunity to explore how JavaScript can separate concerns using object oriented programming. Separating concerns refers to isolating logic that pertains to different operations. For example, processing the data a user submits is one concern, and storing that data in a database is another concern. Although we won't be using a relational database until the database development course, we can store data on the frontend using a few different strategies: an in-memory database (simply an array of objects that your JavaScript maintains), cookies (which can last for a specified duration of seconds), SessionStorage (which lasts until the tab or browser is closed) and LocalStorage (which persists until explicitly deleted). This is a perfect application for Object Oriented Programming in JavaScript because we will need to encapsulate the data the user submits in a standardized way (classes can act as blueprints for this data, and we can bundle them with methods).
+
+            
+
+            In this module, you will:
+
+                Create classes that separate concerns.
+                Simulate interfaces with inheritance.
+                Create, update and retrieve data stored in SessionStorage and cookies.
+                Implement the DAO pattern to seamlessly switch between using SessionStorage and cookies.
+
+        Storing Data on the frontend
+           Storing Data on the Frontend Overview
+             Now that we're familiar with the syntax for classes, we're ready to begin separating data-access logic from business logic. At a high level, we'll need to take data from the user, store it in a database, then retrieve it from the database. Classes allow us to represent the data stored in the database, or the data we intend to store in the database. On the frontend, the most common ways to store data are cookies and SessionStorage, both of which store data as text. However, when a user submits a form to create a Product, for example, we have data that is better and more easily represented as an object with properties like name, quantity, and price. This means we need to convert between objects and text as part of our data-access logic. JSON (JavaScript Object Notation) allows us to serialize objects or an array of objects into strings. When retrieving a JSON string from our database, we can deserialize it back into an object or an array of objects. 
+
+            On this page, you will:
+
+                Differentiate between frontend data storage solutions.
+                Explore the structure of JSON
+                Differentiate between serialization and deserialization.
+
+        Storing Data on Browsers
+            Think back to when we created that question and answer section for our ecommerce site. That array of question-answer objects could be thought of as an "in-memory" database. However, we are at the point where we want to persist user data. If we were to add user data to such an in-memory database, it would be lost whenever the application restarts (in this case, whenever our page is refreshed). Modern browsers provide methods of storing such data after page reloads and even after the user closes the browser. In future, you will store user data in a database via a backend, but for now we will focus on frontend options only. SessionStorage stores information until its tab or the browser is closed. LocalStorage stores information until that information is explicitly deleted. Cookies are deleted when the browser closes, or after a specified duration of seconds.
+
+            
+
+            SessionStorage, LocalStorage and cookies all store data as text though, which means that in order to store complex objects therein we first need to serialize them into text using JSON (JavaScript Object Notation). A JSON string represents a single object or a single array of objects. The keys of all JSON objects must be within quotation marks, and valid types for their values are strings, numbers,  booleans, null (undefined or NaN is not allowed), arrays, and objects. Also, JSON also does not allow trailing commas (there should be no comma before any closing parantheses, square brackets or curly braces). JavaScript includes a JSON namespace object that has the helpful .stringify() method for serializing objects into JSON, and the .parse() method for deserializing JSON into objects:
+
+
+            const exampleArrayOfObjects = [
+            {
+                name: "Leonard",
+                age: 80
+            },
+            {
+                name: "Patricia",
+                age: 26
+            },
+            {
+                name: "Kevin",
+                age: 8
+            }
+            ]
+
+            const exampleArrayOfObjectsAsJSON = JSON.stringify(exampleArrayOfObjects);
+            console.log(exampleArrayOfObjectsAsJSON); 
+            /* the line above will print the following to the console: 
+            [{"name":"Leonard","age":80},{"name":"Patricia","age":26},{"name":"Kevin","age":8}] 
+            */
+
+            console.log(JSON.parse(exampleArrayOfObjectsAsJSON)); 
+            //the line above will print out the same contents as the original exampleArrayOfObjects
+
+
+            If we wanted to encapsulate a method like .toString() for every product, we could create a Product class that expects a name, price and quantity to be passed to its constructor, for example. The .toString() method could then return
+
+            `${this.name}: $${this.price}, ${this.quantity} left`
+
+            This has the advantage of standardizing the properties that every product will have (name, price and quantity), and coupling these properties with a method that can act on them readily within the same data structure (a class).
+
+        Dao pattern
+            DAO Pattern Overview
+                When developing applications, the logic required to furnish your desired functionality can get quite complex. A design principle called "separation of concerns" aims to make code easier to understand and test in isolation by "decoupling" functionality. For example, accessing stored data and using that data are two different concerns that are best handled separately (via a persistence/data-access layer and a business/application layer, respectively). The DAO (Database Access Object) Pattern is a design pattern that separates concerns into a data-access and business layers using classes and interfaces. Javascript does not have a concept of interfaces, but we can simulate interfaces using inheritance. Ultimately, we will use this pattern so that we can switch seamlessly between storing data using cookies or SessionStorage.
+
+                In this assignment, you will:
+
+                    Simulate interfaces.
+                    Separate concerns.
+                    Serialize and persist data as JSON.
+                    Deserialize JSON data.
+            
+            DAO Pattern
+                The logic for interacting with SessionStorage and LocalStorage is virtually the same, but it's very different for cookies. So what if you needed to change your approach mid-development to switch from using SessionStorage to using cookies, for example? If you haven't decoupled your business logic from your data-access logic, you will have a mess on your hands. Leveraging the DAO Pattern makes such a switch rather seamless. 
+
+                The DAO pattern includes the following:
+
+                    models: classes whose instances represent data that is to be retrieved from or saved to the datastore
+                    one interface per model to describe what behavior is expected of any class that presumes to access or change data in models
+                    data access object classes that implement such an interface
+                    a service class that invokes the functions encapsulated within data access objects
+
+                JavaScript does not have a concept of interfaces (unless you use Typescript), but we can simulate interfaces with inheritance by throwing errors if child classes do not override methods in the parent class.
+
+                In the code-along for this module, we will represent products made by sellers (our users) as instances of a Product model. A ProductDAO will create a contract for creating a product and retrieving all products. We'll also create a CookieProductDAO and a SessionStorageProductDAO, both of which will store and retrieve information about products, but in very different ways. We'll then create a CreateProductService class whose constructor will expect a ProductDAO, which can be either CookieProductDAO or a SessionStorageProductDAO (polymorphism). This service class won't care which implementation of ProductDAO we pass to it, because either will expose a create() method with the same return type and the same parameters (this is the interface's "contract"). On the fly, we can switch between providing an instance of CookieProductDAO or SessionStorageProductDAO to our instance of the CreateProductService. This service class will handle the business logic of creating a product by taking data entered into the form, and executing the .create() method exposed by its instance of the ProductDAO, passing in the data from the form as parameters. This business logic will reside in the .createProduct() method of the CreateProductService, which its instance will have access to. When listening for the "submit" event on our form, we will execute this .createProduct() method on our instance of the CreateProductService.
+
+                
+
+                Example (in pseudocode): 
+
+                //model:
+                class Product {
+                constructor(params){
+                    const {name, price, quantity} = params; //destructured assignment (this creates variables called assignmentId, studentId and score, and assigns them the values corresponding to those keys in the params object
+                    this.name = name;
+                    this.price = price;
+                    this.quantity = quantity;
+                }
+                }
+
+                class ProductDAO {
+                getAll() {
+                    throw new Error("Not yet implemented");
+                }
+
+                create(params){
+                    throw new Error("Not yet implemented");
+                }
+                }
+
+                class LocalStorageProductDAO extends ProductDAO {
+                getAll() {
+                    const productsJSON = (get array of products data stored as JSON from LocalStorage);
+                    const parsedProductsJSON = JSON.parse(productsJSON); //deserialize
+
+                    return parsedProductsJSON.map((productData) => new Product(productData));
+                } //returns an array of instances of Product
+
+                create(params){
+                    const newProduct = new Product(params);
+                    const productsList = this.getAll();
+                    productsList.push(newProduct)
+                    const newProductsListAsJSON = JSON.stringify(productsList);
+                    (set array of products as JSON in LocalStorage);
+                }
+                }
+
+                class CookieProductDAO extends ProductDAO {
+                getAll() {
+                    const productsJSON = (cookie-specific logic for getting products data stored as JSON);
+                    const parsedProductsJSON = JSON.parse(productsJSON);
+
+                    return parsedProductsJSON.map((productData) => new Product(productData));
+                } //returns an array of instances of Product
+
+                create(params){
+                    const newProduct = new Product(params);
+                    const productsList = this.getAll();
+                    productsList.push(newProduct)
+                    const newProductsListAsJSON = JSON.stringify(productsList);
+                    (cookie-specific logic for saving the array of products data as JSON);
+                }
+                }
+
+                class CreateProductService {
+                constructor(params){
+                    const {productDAO} = params;
+                    this.productDAO = productDAO; //we don't care about the implementation, only that we can use this DAO to create a grade
+                }
+
+                createProduct(params) {
+                    this.productDAO.create(params);
+                }
+                }
+
+                const localStorageProductDAO = new LocalStorageProductDAO();
+                // const cookieProductDAO = new CookieProductDAO();
+                const createProductService = new CreateProductService(localStorageProductDAO); //creating an instance of the CreateProductService class; we could pass in either localStorageProductDAO or cookieProductDAO
+
+                const newProductForm = document.getElementById("new-product-form");
+                newProductForm.addEventListener("submit", (event) => {
+                const submittedFormData = new FormData(newGradeForm); 
+                const formData = Object.fromEntries(submittedFormData.entries()); //get the data for the form's inputs as an object
+                
+                const name = formData["name"];
+                const price = formData["price"];
+                const quantity = formData["quantity"];
+
+                createProductService.createProduct({ name, price, quantity }); //using our service to create a product from the user's submitted data, without caring about whether we're using cookies or local storage
+                });
+
+                If we wanted to use cookies instead, all we would need to do is to create the service using the cookie DAO instance (after uncommenting it) instead of the LocalStorage DAO instance.
+
+    CSS:
+        CSS basics
+            Module Overview - CSS Basics
+                Now that we understand how to structure and give dynamism to websites, it's time to enhance the user experience even more by improving the site's appearance using CSS (cascading stylesheets). 
+
+                In this module, you will:
+
+                    Select HTML elements by their tag name, ID, and class name.
+                    Combine CSS selectors.
+                    Adjust the relative position of HTML elements using CSS.
+
+            CSS Overview
+                CSS is what confers visual appeal to the information your HTML is conveying. With enough familiarity with CSS, your webpage can go from looking dated and amateurish to looking polished and professional.
+
+                In this page, you will:
+
+                    Differentiate CSS selectors.
+                    Explore CSS style rules.
+
+                Applying CSS, or Cascading Style Sheets, is how you format and stylize html elements. CSS code consists of a series of rules that apply to identified html elements. CSS can live in one of three places: between style tags in the head of your html page (internal CSS), as the value for the "style" attribute of an html element (inline CSS), or in an external stylesheet that you link to in the <head> tag of a page (external CSS). The word "cascading" refers to how styles are applied to elements when there are conflicting instructions. If styles ever conflict, the style read last will ultimately be applied. For example, if you first link to an external stylesheet, then specify styles between style tags, and then specify styles for specific html elements, that is the order in which the styles will be applied, overriding in the case of conflicts.
+
+                Among the three places where styles can be located, external style sheets are the most common in the industry. Here is an example of a stylesheet:
+
+                body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #888;
+                color: #DDD;
+                }
+
+                .a-class {
+                font-size: 36pt;
+                color: #DDF23A;
+                }
+
+                #that-one-element {
+                font-size: 48pt;
+                color: red;
+                }
+
+                Each block constitutes a "rule". The "selector" precedes the curly braces and specifies which elements the stylization will apply to. The body of the curly braces represents the rule's "declaration", and specifies values for css properties of the selected html elements.
+
+            CSS Basics
+               In this stylesheet, we apply one set of styles to the <body> tag, another to all elements whose class list includes "a-class", and another to the (only) element whose id attribute has a value of "that-one-element". We will explain what these mean below. Note that the value of the class attribute for an html element is a string, and that string can include multiple names separated by spaces . This means that every html element has a list of CSS classes that apply to it, even if that list is empty by default. Each class can be separately selected for in CSS rules. So, if an html element indeed has multiple class names included in the value for its class attribute, the CSS rule that selects each class name will be applied to that html element (in order, overriding in the case of conflicts).
+
+                CSS can be used to control many different aspects of how an HTML element is rendered. For now, we'll discuss these basics:
+
+                    Colors: The following CSS attributes let you control the color of elements and the text within them.
+                        background-color: controls the overall color of the element.
+                        color: controls the color of text in the element.
+                    Fonts: These elements control various aspects of text within elements
+                        font-family: controls which type of fonts are used. Common font families include serif, sans-serif, and monospace.
+                        font-size: controls how large text is in an element. Can be specified in pixels - px, points pt, or em - em. Em allows for resizing of text by users and/or for responsive design.
+                        font-weight: normal or bold.
+                        font-style: normal or italic
+
+            CSS Selectors
+              CSS Selectors are a set of tools for specifying which element or elements a given style should be applied to. Selectors can be used to identify a specific element, or to select elements by tag type, CSS class, ordering on the page, nesting within other elements, or various other methods and combinations. For this course, you'll want to understand these:
+
+                    #: the hash symbol allows us to specify an element on the page by its id. For instance, #page-header would select an element with the attribute id="page-header'
+                    .: the dot symbol allows us to select a set of elements by CSS class. Classes are simply a CSS tool that lets us set up groupings of elements for styling purposes. For instance, we might add the attribute class="external-link" to <a> tags that link to sites outside of our own. A class selector for this would look like .external-link
+                    tag: we can select elements of a given tag type by simply using the name of that tag, IE p for all paragraph <p> elements.
+
+                So in our stylesheet example above, we select the <body> element for one style, all elements whose class list includes "a-class" for another, and the element whose id attribute has the value "that-one-element" for the third.
+
+                
+
+                We can also select descendent HTML elements like so:
+
+                body div[name="main-container"] div.sub-container ul li {
+                    color: green;
+                }
+
+                This would select all list items inside every list inside every div that has the class sub-container inside the div with the name main-container.
+
+                
+
+                If you were to name this stylesheet index.css and place it in the same directory as our index.html, you would load the stylesheet by linking to it in the head of your html like so:
+
+                <html>
+                    <head>
+                            <link rel="stylesheet" href="./index.css">
+                    </head>
+                    <body>
+                            ...
+                    </body>
+                </html>  
+
+        CSS Basics Reference Sheet 
+            
+            background-color 	
+            
+            Background Color: controls the overall  color of the element color 	
+
+            Color: controls the color of the text in the element.
+            font-family 	
+
+            Font Family: controls which type of fonts are used. Common font families include serif, sans-serif, and monospace.
+            font-size 	
+
+            Font Size: controls how large text is in an element. Can be specified in pixels - px, points - pt, or em - em.
+            font-weight 	
+
+            Font Weight: normal or bold.
+            font-style 	
+
+            Font Style: normal or italic.
+
+            
+            CSS Selectors Reference Table
+
+            CSS Selector
+                Definition
+            # 	
+
+            Hash: allows us to select an html element on the page by its id.
+            . 	
+
+            Dot: allows us to select a set of html elements by a common class name.
+            tag 	
+
+            Tag: we can select elements of a given tag type by simply using the name of that tag. (Ex: 'p' for all <p> elements.)
+
+        TailwindCSS
+            Module Overview - Tailwind CSS
+                You've had the chance to apply styling through CSS, but what if I told you there was another, more efficient way to apply styling to your web pages? This is accomplished through TailwindCSS.
+
+                TailwindCSS simplifies styling because it uses utility classes to apply styling to various aspects consistently without you writing custom CSS by hand. TailwindCSS is widely used in the industry, so you must become familiar with it.
+
+                In this module, you will:
+
+                    Install Tailwind CSS.
+                    Write Tailwind utility classes into HTML.
+                    Make the connection between CSS properties and Tailwind utility classes.
+                    Build CSS styles from the in-line utility classes.
+        
+            TailwindCSS Overview
+              Writing CSS solely by hand is falling out of fashion in favor of using tools like TailwindCSS (and Boostrap and others). Of course, you still must understand CSS to succeed in the industry, but you should also be familiar with popular tools like TailwindCSS that help make styling easier. Later in the module, you will use TailwindCSS to apply styling to a page out of your own portfolio.
+
+                On this page, you will:
+
+                    Install Tailwind as a dependency.
+                    Use Tailwind decorators.
+                    Run a watch script.
+
+            A Brief Introduction to Tailwind
+                Tailwind CSS is a CSS framework that uses "utility classes" to style HTML elements directly. Read the utility-first section of the docs to learn more about these utility classes and to see them in action. 
+
+                Like Vite, Tailwind is an npm package, so we'll have to install it using npm install -D tailwindcss. Tailwind also has a tailwind.config.js file we can generate by running npx tailwindcss init. In this file, we can specify the locations of files and the extensions of our template files (files that will contain Tailwind utility class names). 
+
+                Additionally, we add three Tailwind directives to our main CSS file: @tailwind base; @tailwind components; @tailwind utilities;
+
+            Running a CLI Tool
+                We can run a CLI tool to scan the template files we specified in tailwind.config.js and compile those utility files into actual CSS code in a specified destination folder: npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+
+                In the above example, input.css is where we put our Tailwind directives, and output.css is where our compiled CSS will be stored. The watch flag tells Tailwind to continuously build the CSS as the utility files are edited in the template files.
+            
+            Vite & Tailwind
+                We will be using Vite and Tailwind simultaneously for the code-along and personal portfolio assignment, which will require one terminal to be running Vite and one terminal to be running the TailwindCSS CLI.
+
+    Vite:
+        Module Overview - Vite
+            Now that we have a solid foundation in HTML, CSS, and JavaScript, we can dip our toe into node.js to enhance our development experience. Vite is a popular and helpful tool to this end, and you will almost certainly use it or an equivalent as a professional web developer.
+
+            In this module, you will:
+
+                Install Vite as a dependency.
+                Run a frontend server.
+                Hot-reload your frontend server (automatically).
+
+        Vite Overview
+            So far you've had to reload your webpage manually whenever you've made a change, but this is inefficient and impractical. Instead, the software development industry uses hot module replacement (also known as hot reload) to reload an HTML, CSS, or JavaScript file whenever a change is made. This feature is incorporated in many different frontend frameworks, but in this course, you will use Vite.
+
+            In this page, you will:
+
+                Gain familiarity with node and npm packages.
+                Install Vite.
+        
+        A Brief Introduction to Vite
+            We will use a tool called Vite to enable hot reloading. Vite has some additional features that can be used to greatly speed up and simplify the development process, especially when it comes to bundling frontend files (which historically has been a slow and rather painful process).
+
+            To learn more about Vite, we ask you to read more about Vite before proceeding.
+
+        Installing Node & Vite
+            To install Vite (and later Tailwind), you will need Node installed on your machine. 
+            Node Installation
+
+            Open up a local terminal and run the following command: node -v
+
+            If you see a version number, you are good to go. 
+
+            If you do not see a version number, install nvm-windows if you are on Windows or nvm if you are on a Mac.
+            Vite Installation
+
+            Once you have Node installed, navigate to your code-along repo in your terminal and do either of the following:
+
+                Manually install Vite to your directory by running the command: npm install -D vite (recommended)
+                Run npm create vite@latest to create a new vite project and then move all of your existing code therein.
+
+Course 3:
